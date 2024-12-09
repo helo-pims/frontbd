@@ -67,7 +67,7 @@ label {
 }
 
 /* Inputs (Data, Cliente, Serviço) */
-input[type="text"], input[type="datetime-local"], select {
+input[type="text"], input[type="datetime-local"], input[type="email"], select {
     width: 100%;
     padding: 15px 20px;
     font-size: 16px;
@@ -100,6 +100,27 @@ button {
     margin-top: 4px;
     margin-bottom: 12px;
 }
+
+/* Estilo para textarea */
+textarea {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 16px;
+    border: 2px solid #abe4ffcc; 
+    border-radius: 20px;
+    background: #FFF;
+    box-shadow: #cff0ffcc 0px 10px 10px -5px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+    resize: none; /* Remove a possibilidade de redimensionar o textarea */
+}
+
+/* Efeito de foco para textarea */
+textarea:focus {
+    border-color: #00BFAD; /* Keppel */
+    box-shadow: 0 0 5px rgba(0, 191, 173, 0.5); 
+}
+
 
 button:hover {
     transform: scale(1.03);

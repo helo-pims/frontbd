@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Consulta</title>
+    <link rel="stylesheet" href="stylesformulario.css"> <!-- Link do CSS atualizado -->
+</head>
+<body>
+    <div class="container">
+        <!-- Ícone da Consulta -->
+        <div class="icon-container">
+            <img src="images/consultas.png" alt="Ícone de Consulta">
+        </div>
+        <h2>Agendar Consulta</h2>
+        <form>
+            <!-- Data e Hora da Consulta -->
+            <div class="input-group">
+                <label for="data">Data e Hora:</label>
+                <input type="datetime-local" id="data" name="data" required>
+            </div>
+
+            <!-- ID do Pet -->
+            <div class="input-group">
+                <label for="id_pet">ID do Pet:</label>
+                <input type="text" id="id_pet" name="id_pet" placeholder="Digite o ID do pet" required>
+            </div>
+
+            <!-- ID do Veterinário -->
+            <div class="input-group">
+                <label for="id_veterinario">ID do Veterinário:</label>
+                <input type="text" id="id_veterinario" name="id_veterinario" placeholder="Digite o ID do veterinário" required>
+            </div>
+
+            <!-- Observações -->
+            <div class="input-group">
+                <label for="observacoes">Observações:</label>
+                <textarea id="observacoes" name="observacoes" rows="4" placeholder="Digite observações adicionais"></textarea>
+            </div>
+
+            <!-- Botão de envio -->
+            <button type="submit">Agendar Consulta</button>
+        </form>
+    </div>
+</body>
+</html>
