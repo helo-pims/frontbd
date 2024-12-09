@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultas SQL</title>
+    <link rel="stylesheet" href="testestyles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Card 1: Consultas Básicas e Aninhadas -->
+        <div class="card">
+            <div class="card-title">Consultas Básicas e Aninhadas</div>
+            <div class="buttons">
+                <button class="toggle-btn" onclick="toggleSQL(1)">Consulta simples para retornar todos os clientes</button>
+                <button class="toggle-btn" onclick="toggleSQL(2)">Consulta com aninhamento para encontrar os agendamentos de um cliente específico</button>
+                <button class="toggle-btn" onclick="toggleSQL(3)">Consulta aninhada para listar os pets de um cliente específico</button>
+                <button class="toggle-btn" onclick="toggleSQL(4)">Consulta para encontrar os serviços agendados para um cliente específico</button>
+                <button class="toggle-btn" onclick="toggleSQL(5)">Consulta com subconsulta para calcular o total de vendas de um cliente</button>
+            </div>
+            <div class="sql-code" id="sql-1">
+                <p>SELECT * FROM clientes;</p>
+            </div>
+            <div class="sql-code" id="sql-2">
+                <p>SELECT * FROM agendamentos WHERE id_cliente = (SELECT id FROM clientes WHERE nome = 'Maria Silva');</p>
+            </div>
+            <div class="sql-code" id="sql-3">
+                <p>SELECT nome FROM pets WHERE id_cliente = (SELECT id FROM clientes WHERE nome = 'Carlos Souza');</p>
+            </div>
+            <div class="sql-code" id="sql-4">
+                <p>SELECT s.nome FROM servicos s WHERE s.id IN (SELECT id_servico FROM agendamentos WHERE id_cliente = 1);</p>
+            </div>
+            <div class="sql-code" id="sql-5">
+                <p>SELECT total FROM vendas WHERE id_cliente = (SELECT id FROM clientes WHERE nome = 'Ana Costa');</p>
+            </div>
+        </div>
+
+        <!-- Card 2: Operações com Strings -->
+        <div class="card">
+            <div class="card-title">Operações com Strings</div>
+            <div class="buttons">
+                <button class="toggle-btn" onclick="toggleSQL(6)">Concatenar nome e email dos clientes</button>
+                <button class="toggle-btn" onclick="toggleSQL(7)">Buscar clientes cujo nome começa com 'A'</button>
+                <button class="toggle-btn" onclick="toggleSQL(8)">Contar quantas vezes aparece a letra "o" no nome dos clientes</button>
+                <button class="toggle-btn" onclick="toggleSQL(9)">Buscar clientes com email contendo 'gmail'</button>
+                <button class="toggle-btn" onclick="toggleSQL(10)">Alterar o nome de um cliente</button>
+            </div>
+            <div class="sql-code" id="sql-6">
+                <p>SELECT CONCAT(nome, ' - ', email) AS nome_email FROM clientes;</p>
+            </div>
+            <div class="sql-code" id="sql-7">
+                <p>SELECT nome FROM clientes WHERE nome LIKE 'A%';</p>
+            </div>
+            <div class="sql-code" id="sql-8">
+                <p>SELECT nome, LENGTH(nome) - LENGTH(REPLACE(nome, 'o', '')) AS qtd_o FROM clientes;</p>
+            </div>
+            <div class="sql-code" id="sql-9">
+                <p>SELECT nome, email FROM clientes WHERE email LIKE '%gmail%';</p>
+            </div>
+            <div class="sql-code" id="sql-10">
+                <p>UPDATE clientes SET nome = 'João Pereira' WHERE id = 2;</p>
+            </div>
+        </div>
+
+        <!-- Card 3: Funções Agregadas, Agrupamento e Cláusula HAVING -->
+        <div class="card">
+            <div class="card-title">Funções Agregadas, Agrupamento e Cláusula HAVING</div>
+            <div class="buttons">
+                <button class="toggle-btn" onclick="toggleSQL(11)">Contar o número de clientes</button>
+                <button class="toggle-btn" onclick="toggleSQL(12)">Calcular o total de vendas por cliente</button>
+                <button class="toggle-btn" onclick="toggleSQL(13)">Encontrar o cliente com o maior número de agendamentos</button>
+                <button class="toggle-btn" onclick="toggleSQL(14)">Mostrar a média de idade dos pets</button>
+                <button class="toggle-btn" onclick="toggleSQL(15)">Mostrar o número de agendamentos por serviço</button>
+            </div>
+            <div class="sql-code" id="sql-11">
+                <p>SELECT COUNT(*) AS total_clientes FROM clientes;</p>
+            </div>
+            <div class="sql-code" id="sql-12">
+                <p>SELECT id_cliente, SUM(total) AS total_vendas FROM vendas GROUP BY id_cliente;</p>
+            </div>
+            <div class="sql-code" id="sql-13">
+                <p>SELECT id_cliente, COUNT(*) AS total_agendamentos FROM agendamentos GROUP BY id_cliente ORDER BY total_agendamentos DESC LIMIT 1;</p>
+            </div>
+            <div class="sql-code" id="sql-14">
+                <p>SELECT AVG(idade) AS media_idade_pets FROM pets;</p>
+            </div>
+            <div class="sql-code" id="sql-15">
+                <p>SELECT id_servico, COUNT(*) AS total_agendamentos FROM agendamentos GROUP BY id_servico HAVING COUNT(*) > 5;</p>
+            </div>
+        </div>
+
+        <!-- Card 4: Ordenação -->
+        <div class="card">
+            <div class="card-title">Ordenação</div>
+            <div class="buttons">
+                <button class="toggle-btn" onclick="toggleSQL(16)">Ordenar clientes por nome</button>
+                <button class="toggle-btn" onclick="toggleSQL(17)">Ordenar agendamentos pela data</button>
+                <button class="toggle-btn" onclick="toggleSQL(18)">Ordenar produtos pelo preço</button>
+                <button class="toggle-btn" onclick="toggleSQL(19)">Ordenar os serviços pela descrição</button>
+                <button class="toggle-btn" onclick="toggleSQL(20)">Ordenar veterinários pelo nome</button>
+            </div>
+            <div class="sql-code" id="sql-16">
+                <p>SELECT nome FROM clientes ORDER BY nome ASC;</p>
+            </div>
+            <div class="sql-code" id="sql-17">
+                <p>SELECT data FROM agendamentos ORDER BY data DESC;</p>
+            </div>
+            <div class="sql-code" id="sql-18">
+                <p>SELECT nome, preco FROM produtos ORDER BY preco ASC;</p>
+            </div>
+            <div class="sql-code" id="sql-19">
+                <p>SELECT nome, descricao FROM servicos ORDER BY descricao DESC;</p>
+            </div>
+            <div class="sql-code" id="sql-20">
+                <p>SELECT nome FROM veterinarios ORDER BY nome DESC;</p>
+            </div>
+        </div>
+
+        <!-- Card 5: Operações de Conjunto -->
+        <div class="card">
+            <div class="card-title">Operações de Conjunto</div>
+            <div class="buttons">
+                <button class="toggle-btn" onclick="toggleSQL(21)">União de clientes que têm pets e clientes que não têm pets</button>
+                <button class="toggle-btn" onclick="toggleSQL(22)">Intersecção de clientes que realizaram vendas e agendamentos</button>
+                <button class="toggle-btn" onclick="toggleSQL(23)">Diferença entre clientes que realizaram vendas e agendamentos</button>
+            </div>
+            <div class="sql-code" id="sql-21">
+                <p>SELECT nome FROM clientes WHERE id IN (SELECT id_cliente FROM pets) UNION SELECT nome FROM clientes WHERE id NOT IN (SELECT id_cliente FROM pets);</p>
+            </div>
+            <div class="sql-code" id="sql-22">
+                <p>SELECT nome FROM clientes WHERE id IN (SELECT id_cliente FROM vendas) INTERSECT SELECT nome FROM clientes WHERE id IN (SELECT id_cliente FROM agendamentos);</p>
+            </div>
+            <div class="sql-code" id="sql-23">
+                <p>SELECT nome FROM clientes WHERE id IN (SELECT id_cliente FROM vendas) EXCEPT SELECT nome FROM clientes WHERE id IN (SELECT id_cliente FROM agendamentos);</p>
+            </div>
+        </div>
+
+        <!-- Card 6: Join -->
+        <div class="card">
+            <div class="card-title">Join</div>
+            <div class="buttons">
+                <button class="toggle-btn" onclick="toggleSQL(24)">Inner Join para listar os agendamentos com o nome do cliente e serviço</button>
+                <button class="toggle-btn" onclick="toggleSQL(25)">Left Join para mostrar todos os clientes e seus agendamentos</button>
+                <button class="toggle-btn" onclick="toggleSQL(26)">Right Join para mostrar todos os serviços e os agendamentos</button>
+            </div>
+            <div class="sql-code" id="sql-24">
+                <p>SELECT a.id, c.nome AS cliente, s.nome AS servico, a.data FROM agendamentos a INNER JOIN clientes c ON a.id_cliente = c.id INNER JOIN servicos s ON a.id_servico = s.id;</p>
+            </div>
+            <div class="sql-code" id="sql-25">
+                <p>SELECT c.nome, a.data FROM clientes c LEFT JOIN agendamentos a ON c.id = a.id_cliente;</p>
+            </div>
+            <div class="sql-code" id="sql-26">
+                <p>SELECT s.nome, a.data FROM servicos s RIGHT JOIN agendamentos a ON s.id = a.id_servico;</p>
+            </div>
+        </div>
+
+        <!-- Card 7: Operadores de Multiconjunto -->
+        <div class="card">
+            <div class="card-title">Operadores de Multiconjunto</div>
+            <div class="buttons">
+                <button class="toggle-btn" onclick="toggleSQL(27)">Verificar se o total de vendas de um cliente é maior do que qualquer outra venda</button>
+                <button class="toggle-btn" onclick="toggleSQL(28)">Verificar se o preço de um produto é maior que qualquer preço de outro produto</button>
+            </div>
+            <div class="sql-code" id="sql-27">
+                <p>SELECT id_cliente FROM vendas WHERE total > ALL (SELECT total FROM vendas);</p>
+            </div>
+            <div class="sql-code" id="sql-28">
+                <p>SELECT nome FROM produtos WHERE preco > ANY (SELECT preco FROM produtos);</p>
+            </div>
+        </div>
+
+        <!-- Card 8: Operador EXISTS -->
+        <div class="card">
+            <div class="card-title">Operador EXISTS</div>
+            <div class="buttons">
+                <button class="toggle-btn" onclick="toggleSQL(29)">Verificar se existe um cliente com agendamentos</button>
+                <button class="toggle-btn" onclick="toggleSQL(30)">Verificar se existe um pet com mais de 10 anos</button>
+            </div>
+            <div class="sql-code" id="sql-29">
+                <p>SELECT nome FROM clientes WHERE EXISTS (SELECT 1 FROM agendamentos WHERE id_cliente = clientes.id);</p>
+            </div>
+            <div class="sql-code" id="sql-30">
+                <p>SELECT nome FROM pets WHERE EXISTS (SELECT 1 FROM pets WHERE idade > 10);</p>
+            </div>
+        </div>
+    </div>
+    <script src="teste.js"></script>
+</body>
+</html>
