@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Venda</title>
+    <link rel="stylesheet" href="stylesformulario.css"> <!-- Link do CSS atualizado -->
+</head>
+<body>
+    <div class="container">
+        <!-- Ícone de Venda -->
+        <div class="icon-container">
+            <img src="images/vendas.png" alt="Ícone de Venda">
+        </div>
+        <h2>Adicionar Venda</h2>
+        <form>
+            <!-- Data da Venda -->
+            <div class="input-group">
+                <label for="data">Data da Venda:</label>
+                <input type="datetime-local" id="data" name="data" required>
+            </div>
+
+            <!-- ID do Cliente -->
+            <div class="input-group">
+                <label for="id_cliente">ID do Cliente:</label>
+                <input type="text" id="id_cliente" name="id_cliente" placeholder="Digite o ID do cliente" required>
+            </div>
+
+            <!-- Total -->
+            <div class="input-group">
+                <label for="total">Total da Venda:</label>
+                <input type="number" id="total" name="total" placeholder="Digite o valor total" step="0.01" required>
+            </div>
+
+            <!-- Botão de envio -->
+            <button type="submit">Adicionar Venda</button>
+        </form>
+    </div>
+</body>
+</html>
