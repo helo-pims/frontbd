@@ -8,7 +8,7 @@
 /* Corpo da página */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #E6E4F1; /* Cor de fundo suave */
+    background-color: #DAD7EA; 
     color: #333;
     display: flex;
     justify-content: center;
@@ -28,6 +28,19 @@ body {
     padding: 30px;
     border: 5px solid #FFF;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center; 
+}
+
+/* Ícone da tabela*/
+.icon-container {
+    margin-bottom: 15px;
+}
+
+.icon-container img {
+    width: 80px; /* se quiser ajudar o tamanho do ícone (ele é 200px por 200px, mas posso fazer uma versão maior) */
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 /* Títulos */
@@ -47,37 +60,29 @@ h2 {
 }
 
 label {
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 5px;
     display: block;
     color: #564B8F;
 }
 
-/* Inputs (ID Cliente, Data, Serviço) */
+/* Inputs (Data, Cliente, Serviço) */
 input[type="text"], input[type="datetime-local"], select {
     width: 100%;
     padding: 15px 20px;
     font-size: 16px;
-    border: 2px solid #abe4ffcc; /* Cor padrão da borda */
+    border: 2px solid #abe4ffcc; 
     border-radius: 20px;
     background: #FFF;
     box-shadow: #cff0ffcc 0px 10px 10px -5px;
     outline: none;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; 
 }
-
-
 
 /* Efeito de foco */
-input[type="id_cliente"]:focus, input[type="text"]:focus, input[type="datetime-local"]:focus, select:focus {
-    border-color: #00BFAD; 
+input[type="text"]:focus, input[type="datetime-local"]:focus, select:focus {
+    border-color: #00BFAD; /* Keppel */
     box-shadow: 0 0 5px rgba(0, 191, 173, 0.5); 
-}
-
-/* Placeholder para os campos */
-input::placeholder {
-    color: #999;
-    font-size: 14px;
 }
 
 /* Botão de envio */
@@ -106,5 +111,3 @@ button:active {
     transform: scale(0.95);
     box-shadow: rgba(133, 189, 215, 0.9) 0px 15px 10px -10px;
 }
-
-
