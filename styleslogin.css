@@ -25,7 +25,7 @@ body {
     background: #FFF; 
     background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(244, 247, 251) 100%);
     border-radius: 40px;
-    padding: 25px 35px;
+    padding: 35px 35px; 
     border: 5px solid rgb(255, 255, 255);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -54,16 +54,13 @@ h2 {
 
 /* Inputs */
 .input-group {
-    
-    margin-bottom: 15px;
+    margin-bottom: 20px; 
     text-align: left;
 }
 
-
-
 label {
-    font-size: 14px;
-    margin-bottom: 5px;
+    font-size: 18px; 
+    margin-bottom: 6px; 
     display: block;
     color: #564B8F; /* Ultra Violet */
 }
@@ -84,16 +81,16 @@ input[type="email"], input[type="password"], input[type="text"], select {
 /* Efeito de foco com animação mais forte */
 input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focus, select:focus {
     border-color: #00BFAD; /* Keppel */
-    box-shadow: 0 0 5px rgba(0, 191, 173, 0.5); /* Sombra verde-azulada ao focar */
+    box-shadow: 0 0 5px rgba(0, 191, 173, 0.5); 
 }
 
 /* Botão principal */
 button {
     width: 100%;
     padding: 15px;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
-    background: linear-gradient(45deg, #6458af 0%, #00BFAD 100%); /* Hunyadi yellow e Keppel */
+    background: linear-gradient(45deg, #6458af 0%, #00BFAD 100%); 
     color: white;
     border: none;
     border-radius: 20px;
@@ -106,10 +103,29 @@ button {
 button:hover {
     transform: scale(1.03);
     box-shadow: #85bdd7e6 0px 23px 10px -20px;
-    background: linear-gradient(45deg, #4a427a 0%, #008C8C 100%); /* Alteração no hover */
+    background: linear-gradient(45deg, #4a427a 0%, #008C8C 100%); 
 }
 
 button:active {
     transform: scale(0.95);
     box-shadow: rgba(133, 189, 215, 0.9) 0px 15px 10px -10px;
+}
+
+/* Texto para registro */
+.register-text {
+    font-size: 14px;
+    text-align: center;
+    color: #564B8F;
+    margin-bottom: 6px;
+}
+
+.register-text a {
+    text-decoration: none;
+    color: #6458af;
+    font-weight: bold;
+}
+
+.register-text a:hover {
+    text-decoration: underline;
+    color: #4a427a;
 }
