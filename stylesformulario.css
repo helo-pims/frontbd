@@ -67,7 +67,7 @@ label {
 }
 
 /* Inputs (Data, Cliente, Serviço) */
-input[type="text"], input[type="datetime-local"], input[type="email"], select {
+input[type="text"], input[type="datetime-local"], input[type="email"], input[type="number"], select {
     width: 100%;
     padding: 15px 20px;
     font-size: 16px;
@@ -112,7 +112,7 @@ textarea {
     box-shadow: #cff0ffcc 0px 10px 10px -5px;
     outline: none;
     transition: border-color 0.3s ease, box-shadow 0.3s ease; 
-    resize: none; /* Remove a possibilidade de redimensionar o textarea */
+    resize: none; /* Remove a possibilidade de redimensionar o textarea que estava estragando meu conteiner*/
 }
 
 /* Efeito de foco para textarea */

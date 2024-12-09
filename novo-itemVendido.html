@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Item Vendido</title>
+    <link rel="stylesheet" href="stylesformulario.css"> <!-- Link do CSS atualizado -->
+</head>
+<body>
+    <div class="container">
+        <!-- Ícone de Item Vendido -->
+        <div class="icon-container">
+            <img src="images/itens_vendidos.png" alt="Ícone de Item Vendido">
+        </div>
+        <h2>Adicionar Item Vendido</h2>
+        <form>
+            <!-- ID da Venda -->
+            <div class="input-group">
+                <label for="id_venda">ID da Venda:</label>
+                <input type="text" id="id_venda" name="id_venda" placeholder="Digite o ID da venda" required>
+            </div>
+
+            <!-- ID do Produto -->
+            <div class="input-group">
+                <label for="id_produto">ID do Produto:</label>
+                <input type="text" id="id_produto" name="id_produto" placeholder="Digite o ID do produto" required>
+            </div>
+
+            <!-- Quantidade -->
+            <div class="input-group">
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" id="quantidade" name="quantidade" placeholder="Digite a quantidade" min="1" required>
+            </div>
+
+            <!-- Preço Unitário -->
+            <div class="input-group">
+                <label for="preco_unitario">Preço Unitário:</label>
+                <input type="number" id="preco_unitario" name="preco_unitario" placeholder="Digite o preço unitário" step="0.01" min="0" required>
+            </div>
+
+            <!-- Botão de envio -->
+            <button type="submit">Adicionar Item</button>
+        </form>
+    </div>
+</body>
+</html>
