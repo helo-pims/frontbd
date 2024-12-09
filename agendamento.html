@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Agendamento</title>
+    <link rel="stylesheet" href="stylesformulario.css"> <!-- Link do CSS atualizado -->
+</head>
+<body>
+    <div class="container">
+        <h2>Criar Agendamento</h2>
+        <form>
+            <!-- ID do Cliente -->
+            <div class="input-group">
+                <label for="id_cliente">ID do Cliente:</label>
+                <input type="text" id="id_cliente" name="id_cliente" placeholder="Digite o ID do cliente" required>
+            </div>
+
+            <!-- Data e Hora -->
+            <div class="input-group">
+                <label for="data">Data e Hora do Agendamento:</label>
+                <input type="datetime-local" id="data" name="data" required>
+            </div>
+            
+            <!-- Serviço -->
+            <div class="input-group">
+                <label for="servico">Selecione o Serviço</label>
+                <select id="servico" name="id_servico" required>
+                    <option value="" disabled selected>Selecione o Serviço</option>
+                    <option value="1">Banho e Tosa</option>
+                    <option value="2">Consulta Veterinária</option>
+                    <option value="3">Vacinação</option>
+                    <option value="4">Tosa Higiênica</option>
+                    <option value="5">Exames de Sangue</option>
+                    <option value="6">Emergência Veterinária</option>
+                    <option value="7">Adestramento Básico</option>
+                    <option value="8">Cuidados Dentários</option>
+                    <option value="9">Consulta Especialista</option>
+                    <option value="10">Hidratação de Pelos</option>
+                    <option value="11">Microchipagem</option>
+                    <option value="12">Desparasitação</option>
+                    <option value="13">Terapia Comportamental</option>
+                    <option value="14">Corte de Unhas</option>
+                    <option value="15">Exames de Imagem</option>
+                </select>
+            </div>
+
+            <!-- Status (campo oculto com o valor padrão 'agendado') -->
+            <input type="hidden" name="status" value="agendado">
+
+            <!-- Botão de envio -->
+            <button type="submit">Criar Agendamento</button>
+        </form>
+    </div>
+</body>
+</html>

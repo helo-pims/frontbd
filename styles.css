@@ -7,7 +7,7 @@
     
     body {
       font-family: Arial, sans-serif;
-      background-color: #FCFDFB; /* Baby Powder */
+      background-color: #FCFDFB; 
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -17,8 +17,8 @@
     
     header {
       width: 100%;
-      background-color: #00BFAD; /* Keppel */
-      color: #FCFDFB; /* Baby Powder */
+      background-color: #00BFAD; 
+      color: #FCFDFB; 
       padding: 20px 0;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       margin-bottom: 20px;
